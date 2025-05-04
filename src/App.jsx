@@ -4,6 +4,13 @@ import { useState } from "react";
 
 function App() {
   const [currentWord, setCurrentWord] = useState("react");
+  const [guessed, setGuessed] = useState([]);
+
+  const addGuessedLetter = (event) => {
+    if (!guessed.includes(event.target.value)) {
+      setGuessed(guessed.concat(event.target.value));
+    }
+  };
 
   const word = currentWord.split("").map((char) => {
     return <span key={char}>{char.toUpperCase()}</span>;
@@ -24,7 +31,7 @@ function App() {
 
   const keyboardElements = alphabet.split("").map((letter) => {
     return (
-      <button key={letter} value={letter.toUpperCase()}>
+      <button onClick={addGuessedLetter} key={letter} value={letter.toUpperCase()}>
         {letter.toUpperCase()}
       </button>
     );
