@@ -1,7 +1,14 @@
 import "./App.css";
 import { languages } from "./languages";
+import { useState } from "react";
 
 function App() {
+  const [currentWord, setCurrentWord] = useState("react");
+
+  const word = currentWord.split("").map((char) => {
+    return <span key={char}>{char.toUpperCase()}</span>;
+  });
+
   const languageElements = languages.map((l) => {
     return (
       <span
@@ -10,6 +17,16 @@ function App() {
       >
         {l.name}
       </span>
+    );
+  });
+
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  const keyboardElements = alphabet.split("").map((letter) => {
+    return (
+      <button key={letter} value={letter.toUpperCase()}>
+        {letter.toUpperCase()}
+      </button>
     );
   });
 
@@ -30,6 +47,12 @@ function App() {
         </section>
 
         <section className="languages">{languageElements}</section>
+
+        <section className="word-display">{word}</section>
+
+        <section className="keyboard">{keyboardElements}</section>
+
+        <button className="new-game-btn">New Game</button>
       </main>
     </>
   );

@@ -8,21 +8,30 @@ body {
   background-color: #262626;
   color: #d9d9d9;
   padding: 20px;
-  height: 100vh;
+  height: 60vh;
   display: flex;
   justify-content: center;
+  font-family: "Hanken Grotesk", Arial, Helvetica, sans-serif;
+}
+
+button {
+  cursor: pointer;
   font-family: "Hanken Grotesk", Arial, Helvetica, sans-serif;
 }
 
 main {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
+  height: 100%;
 }
 
 header {
   text-align: center;
+  display: grid;
+  gap: 5px;
 
   h1 {
     font-size: 1.25rem;
@@ -51,7 +60,8 @@ header {
   }
 }
 
-.languages {
+.languages,
+.keyboard {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,4 +73,41 @@ header {
     padding: 5px;
     border-radius: 3px;
   }
+}
+
+.keyboard {
+  max-width: 400px;
+}
+
+.keyboard button {
+  width: 35px;
+  aspect-ratio: 1/1;
+  border-radius: 3px;
+  border: none;
+  background-color: #fcba29;
+  border: 1px solid #d7d7d7;
+  font-size: 1.125rem;
+}
+
+.word-display {
+  display: flex;
+  gap: 5px;
+
+  span {
+    background-color: rgb(75, 75, 75);
+    color: white;
+    border-bottom: 2px solid #f9f4da;
+    padding: 10px 15px;
+    border-radius: 2px;
+    font-size: 1.125rem;
+  }
+}
+
+.new-game-btn {
+  background-color: #0e91bd;
+  border: 1px solid #d7d7d7;
+  padding: 7.5px 57.5px;
+  border-radius: 5px;
+  font-size: 1.125rem;
+  font-weight: 500;
 }
