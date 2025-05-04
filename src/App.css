@@ -84,7 +84,7 @@ header {
   aspect-ratio: 1/1;
   border-radius: 3px;
   border: none;
-  background-color: #fcba29;
+  
   border: 1px solid #d7d7d7;
   font-size: 1.125rem;
 }
@@ -97,9 +97,12 @@ header {
     background-color: rgb(75, 75, 75);
     color: white;
     border-bottom: 2px solid #f9f4da;
-    padding: 10px 15px;
+    height: 40px;
+    width: 40px;
     border-radius: 2px;
     font-size: 1.125rem;
+    display: grid;
+    place-items: center;
   }
 }
 
@@ -110,4 +113,16 @@ header {
   border-radius: 5px;
   font-size: 1.125rem;
   font-weight: 500;
+}
+
+.correct {
+  background-color: #10A95b;
+}
+
+.wrong {
+  background-color: #ec5d49;
+}
+
+.vanilla {
+  background-color: #fcba29;
 }

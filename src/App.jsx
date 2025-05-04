@@ -6,14 +6,20 @@ function App() {
   const [currentWord, setCurrentWord] = useState("react");
   const [guessed, setGuessed] = useState([]);
 
+  const wrongGuessCount = guessed.filter(g => !currentWord.includes(g.toLowerCase()))
+  console.log("tracer: ", wrongGuessCount.length)
+
   const addGuessedLetter = (event) => {
     if (!guessed.includes(event.target.value)) {
       setGuessed(guessed.concat(event.target.value));
     }
+    console.log(guessed)
   };
 
   const word = currentWord.split("").map((char) => {
-    return <span key={char}>{char.toUpperCase()}</span>;
+    const isGuessed = guessed.includes(char.toUpperCase());
+
+    return <span key={char}>{isGuessed && char.toUpperCase()}</span>;
   });
 
   const languageElements = languages.map((l) => {
@@ -30,8 +36,18 @@ function App() {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
   const keyboardElements = alphabet.split("").map((letter) => {
+    const isGuessed = guessed.includes(letter.toUpperCase());
+    const isCorrect = isGuessed && currentWord.includes(letter)
+    const isWrong = isGuessed && !currentWord.includes(letter)
+    console.log("keyboard rendered")
+
     return (
-      <button onClick={addGuessedLetter} key={letter} value={letter.toUpperCase()}>
+      <button 
+      className={isCorrect ? "correct" : isWrong ? "wrong" : "vanilla"}
+      onClick={addGuessedLetter} 
+      key={letter} 
+      value={letter.toUpperCase()}
+      >
         {letter.toUpperCase()}
       </button>
     );
