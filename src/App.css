@@ -8,7 +8,7 @@ body {
   background-color: #262626;
   color: #d9d9d9;
   padding: 20px;
-  height: 60vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   font-family: "Hanken Grotesk", Arial, Helvetica, sans-serif;
@@ -47,7 +47,7 @@ header {
 }
 
 .game-status {
-  background-color: #10a95b;
+  height: 100%;
   display: grid;
   place-items: center;
   color: #f9f4da;
@@ -72,6 +72,7 @@ header {
   span {
     padding: 5px;
     border-radius: 3px;
+    position: relative;
   }
 }
 
@@ -125,4 +126,27 @@ header {
 
 .vanilla {
   background-color: #fcba29;
+}
+
+.dead::before {
+  content:"💀";
+  color: white;
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 0.85rem;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 3px;
+}
+
+.won {
+  background-color: #10a95b;
+}
+
+.lost {
+  background-color: #ec5d49;
 }
